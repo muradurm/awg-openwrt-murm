@@ -27,7 +27,7 @@ on:
 
 jobs:
   generate-config:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       job-config: ${{ steps.generate-config.outputs.job-config }}
     steps:
@@ -70,7 +70,7 @@ jobs:
 
   build:
     name: "v${{ matrix.build_env.tag }} - ${{ matrix.build_env.pkgarch}} :: ${{ matrix.build_env.target}}/${{ matrix.build_env.subtarget}} build"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: generate-config
     strategy:
       matrix:
